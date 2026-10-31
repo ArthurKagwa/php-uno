@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>08 · Your first form: add two numbers · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="08-addition">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 8 of 13</span><span>~10 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="62"><div style="width:62%"></div></div>
+    </div>
+    <span class="tag">Lesson 08</span>
+    <h1>Your first form: add two numbers</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Let the <strong>user</strong> type the numbers. An HTML form sends them back to the same page with <strong>POST</strong>, and PHP reads them from <code>$_POST</code>.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+          <li>In <code>C:\wamp64\www</code>, create a folder called <code>08-addition</code>.</li>
+          <li>Inside it, create <code>index.php</code> and paste in the code below. Typing it yourself is even better.</li>
+          <li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
+          <li>Open <code>http://localhost/08-addition/</code> in your browser.</li>
+          <li>Type two numbers and press <strong>Add</strong>.</li>
+        </ol><div class="meta">
+          <div><b>Save as</b><code>C:\wamp64\www\08-addition\index.php</code></div>
+          <div><b>Run it</b><code>http://localhost/08-addition/</code></div>
+        </div><div class="code-wrap"><span class="code-label">08-addition/index.php</span><pre><code>&lt;?php
+$result = null;
+$error = "";
+$a = "";
+$b = "";
+
+// Only run this part after the form is submitted
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $a = trim($_POST["a"] ?? "");
+    $b = trim($_POST["b"] ?? "");
+
+    if ($a === "" || $b === "") {
+        $error = "Please fill in both numbers.";
+    } elseif (!is_numeric($a) || !is_numeric($b)) {
+        $error = "Please type numbers only.";
+    } else {
+        $result = $a + $b;
+    }
+}
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Add Two Numbers&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Add two numbers&lt;/h1&gt;
+
+    &lt;form method="post"&gt;
+        &lt;input type="text" name="a" placeholder="First number"
+               value="&lt;?php echo htmlspecialchars($a); ?&gt;"&gt;
+        +
+        &lt;input type="text" name="b" placeholder="Second number"
+               value="&lt;?php echo htmlspecialchars($b); ?&gt;"&gt;
+        &lt;button type="submit"&gt;Add&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;?php if ($error !== ""): ?&gt;
+        &lt;p style="color: red;"&gt;&lt;?php echo htmlspecialchars($error); ?&gt;&lt;/p&gt;
+    &lt;?php elseif ($result !== null): ?&gt;
+        &lt;h2&gt;
+            &lt;?php echo htmlspecialchars($a) . " + " . htmlspecialchars($b) . " = " . $result; ?&gt;
+        &lt;/h2&gt;
+    &lt;?php endif; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>Type 5 and 7 and you get "5 + 7 = 12". Leave a box empty, or type letters, and you get a red error message.</p>
+      <div class="note"><strong>Two good habits:</strong><br>
+        1. <strong>Check the input</strong> before using it. <code>is_numeric()</code> makes sure it's a number.<br>
+        2. Wrap anything the user typed in <code>htmlspecialchars()</code> before you show it. That stops people from injecting their own HTML into your page.</div>
+      <p class="note challenge"><strong>Try this:</strong> add a third box and add all three numbers.</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="07-even-odd.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="09-calculator.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

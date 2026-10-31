@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>03 · The www folder &amp; your first project · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="03-www-folder">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 3 of 13</span><span>~5 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="23"><div style="width:23%"></div></div>
+    </div>
+    <span class="tag">Lesson 03</span>
+    <h1>The www folder &amp; your first project</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Learn the one rule behind every project: <strong>a folder in <code>www</code> becomes a web address.</strong></p>
+      <h2>Steps</h2>
+      <ol class="steps">
+        <li>Open <code>C:\wamp64\www</code>. You can also left-click the tray icon and choose <em>www directory</em>.</li>
+        <li>Create a new folder called <code>test</code>. Use lowercase letters and dashes, with no spaces.</li>
+        <li>Open VS Code, then <em>File → Open Folder</em> and pick <code>C:\wamp64\www\test</code>.</li>
+        <li>Create a new file called <code>index.php</code>, type the line below, and save it (<kbd>Ctrl</kbd>+<kbd>S</kbd>).</li>
+        <li>In your browser, open <code>http://localhost/test/</code>.</li>
+      </ol>
+      <div class="code-wrap"><span class="code-label">test/index.php</span><pre><code>&lt;?php echo "It works!"; ?&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>The words <strong>It works!</strong> on the page.</p>
+      <div class="note"><strong>The rule:</strong>
+        <code>C:\wamp64\www\<b>test</b>\index.php</code> → <code>http://localhost/<b>test</b>/</code><br>
+        Always open PHP through <code>http://localhost/…</code>. Double-clicking the file won't work.</div>
+      <p class="note challenge"><strong>Try this:</strong> make another folder called <code>me</code> with an <code>index.php</code> that echoes your name, then open <code>http://localhost/me/</code>.</p>
+      <p><strong>Shortcut:</strong> every project in the next lessons is also in the <code>projects/</code> folder of this repo. Download it from GitHub (<em>Code → Download ZIP</em>) and copy those folders into <code>www</code> if you get stuck.</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="02-start-wamp.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="04-hello-world.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

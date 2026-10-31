@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>02 · Start it &amp; check localhost · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="02-start-wamp">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 2 of 13</span><span>~5 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="15"><div style="width:15%"></div></div>
+    </div>
+    <span class="tag">Lesson 02</span>
+    <h1>Start it &amp; check localhost</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Start WampServer and confirm your PC is now running a web server.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+        <li>Open <em>Wampserver64</em> from the Start menu.</li>
+        <li>Look for a small <strong>W</strong> icon in the system tray, near the clock. You may need to click the <code>^</code> arrow to see it.</li>
+        <li>Wait until the icon turns <strong>green</strong>:
+          <ul>
+            <li><span class="dot green"></span><strong>Green</strong>: everything is running. You're ready.</li>
+            <li><span class="dot orange"></span><strong>Orange</strong>: only some services started. See <a href="12-troubleshooting.html">Troubleshooting</a>.</li>
+            <li><span class="dot red"></span><strong>Red</strong>: nothing is running yet. Wait a few seconds, or see Troubleshooting.</li>
+          </ul>
+        </li>
+        <li>Open your browser and go to <code>http://localhost</code>.</li>
+      </ol>
+      <h2>You should see</h2>
+      <p>The WampServer home page, which shows the versions of Apache, PHP and MySQL. That page comes from your own PC!</p>
+      <p class="note challenge"><strong>Check yourself:</strong> what does "localhost" mean? <em>Answer: "this computer". Your browser is talking to the server running on your own PC.</em></p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="01-install.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="03-www-folder.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

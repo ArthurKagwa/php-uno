@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>05 · Variables &amp; echo · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="05-variables">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 5 of 13</span><span>~5 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38"><div style="width:38%"></div></div>
+    </div>
+    <span class="tag">Lesson 05</span>
+    <h1>Variables &amp; echo</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Learn about <strong>variables</strong>, which are labelled boxes that hold a value. In PHP, every variable name starts with <code>$</code>.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+          <li>In <code>C:\wamp64\www</code>, create a folder called <code>05-variables</code>.</li>
+          <li>Inside it, create <code>index.php</code> and paste in the code below. Typing it yourself is even better.</li>
+          <li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
+          <li>Open <code>http://localhost/05-variables/</code> in your browser.</li>
+        </ol><div class="meta">
+          <div><b>Save as</b><code>C:\wamp64\www\05-variables\index.php</code></div>
+          <div><b>Run it</b><code>http://localhost/05-variables/</code></div>
+        </div><div class="code-wrap"><span class="code-label">05-variables/index.php</span><pre><code>&lt;?php
+// Variables start with a $ sign
+$name = "Arthur";
+$age = 23;
+$city = "Kampala";
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Variables &amp;amp; echo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;About me&lt;/h1&gt;
+    &lt;?php
+    echo "&lt;p&gt;My name is $name.&lt;/p&gt;";
+    echo "&lt;p&gt;I am $age years old.&lt;/p&gt;";
+    echo "&lt;p&gt;I live in $city.&lt;/p&gt;";
+    ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>Three lines: "My name is Arthur.", "I am 23 years old.", "I live in Kampala."</p>
+      <div class="note"><strong>Notice:</strong> inside <em>double</em> quotes, PHP swaps <code>$name</code> for its value. Text is wrapped in quotes, but numbers like <code>23</code> are not.</div>
+      <p class="note challenge"><strong>Try this:</strong> change the values to your own details, then add a <code>$favouriteFood</code> variable and print it.</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="04-hello-world.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="06-text-and-maths.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

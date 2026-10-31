@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>11 · GET forms: greeting by time of day · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="11-greeting">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 11 of 13</span><span>~7 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85"><div style="width:85%"></div></div>
+    </div>
+    <span class="tag">Lesson 11</span>
+    <h1>GET forms: greeting by time of day</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Use a <strong>GET</strong> form. Unlike POST, what you type shows up in the address bar, like <code>?name=Arthur</code>, and PHP reads it from <code>$_GET</code>. The page also says good morning, afternoon or evening depending on the time.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+          <li>In <code>C:\wamp64\www</code>, create a folder called <code>11-greeting</code>.</li>
+          <li>Inside it, create <code>index.php</code> and paste in the code below. Typing it yourself is even better.</li>
+          <li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
+          <li>Open <code>http://localhost/11-greeting/</code> in your browser.</li>
+          <li>Type your name and press <strong>Greet me</strong>. Then look at the address bar.</li>
+        </ol><div class="meta">
+          <div><b>Save as</b><code>C:\wamp64\www\11-greeting\index.php</code></div>
+          <div><b>Run it</b><code>http://localhost/11-greeting/</code></div>
+        </div><div class="code-wrap"><span class="code-label">11-greeting/index.php</span><pre><code>&lt;?php
+// GET values show up in the URL, e.g. ?name=Arthur
+$name = trim($_GET["name"] ?? "");
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Greeting&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Greeting form&lt;/h1&gt;
+
+    &lt;form method="get"&gt;
+        &lt;input type="text" name="name" placeholder="Your name"
+               value="&lt;?php echo htmlspecialchars($name); ?&gt;"&gt;
+        &lt;button type="submit"&gt;Greet me&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;?php if ($name !== ""): ?&gt;
+        &lt;?php
+        $hour = (int) date("G");
+        if ($hour &lt; 12) {
+            $greeting = "Good morning";
+        } elseif ($hour &lt; 17) {
+            $greeting = "Good afternoon";
+        } else {
+            $greeting = "Good evening";
+        }
+        ?&gt;
+        &lt;h2&gt;&lt;?php echo $greeting . ", " . htmlspecialchars($name) . "!"; ?&gt;&lt;/h2&gt;
+    &lt;?php endif; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>Something like "Good evening, Arthur!", and the address changes to <code>…/11-greeting/?name=Arthur</code>.</p>
+      <div class="note"><strong>GET or POST?</strong> Use GET for things that are fine to share or bookmark, like searches. Use POST for things that change data or are private, like passwords.</div>
+      <p class="note challenge"><strong>Try this:</strong> type a different name straight into the address bar, e.g. <code>?name=Mum</code>, and press Enter. Then add a box for a favourite colour and show the greeting in that colour. Don't forget <code>htmlspecialchars()</code>!</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="10-times-table.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="12-troubleshooting.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

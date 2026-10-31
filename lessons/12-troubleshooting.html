@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>12 · Troubleshooting · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="12-troubleshooting">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 12 of 13</span><span>~5 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92"><div style="width:92%"></div></div>
+    </div>
+    <span class="tag">Lesson 12</span>
+    <h1>Troubleshooting</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Fix the problems almost every beginner runs into. Tap a problem to see the fix.</p>
+      <details>
+        <summary><span class="dot orange"></span>The WampServer icon stays orange or red</summary>
+        <div>
+          <p>Another program is probably using <strong>port 80</strong>, the port Apache needs. Common culprits are <strong>Skype</strong>, <strong>IIS</strong> (Windows' own web server) and other servers such as XAMPP.</p>
+          <ol class="steps">
+            <li>Close Skype, or turn off its use of port 80 in its settings.</li>
+            <li>Turn off IIS: open <em>Turn Windows features on or off</em>, untick <em>Internet Information Services</em>, then restart.</li>
+            <li>Check the port: left-click the tray icon → <em>Apache → Service administration → Test port 80</em>.</li>
+            <li>Left-click the icon → <em>Restart All Services</em>.</li>
+          </ol>
+        </div>
+      </details>
+      <details>
+        <summary>My PHP code shows up as plain text</summary>
+        <div>
+          <p>You opened the file directly, so the address starts with <code>file:///C:/…</code> and PHP never ran.</p>
+          <p><strong>Fix:</strong> open it through <code>http://localhost/your-folder/</code>. Also check that the file ends in <code>.php</code> and not <code>.php.txt</code>. In File Explorer, go to <em>View → File name extensions</em> to see the real name.</p>
+        </div>
+      </details>
+      <details>
+        <summary>404 Not Found</summary>
+        <div>
+          <p>The server can't find the folder. Check that:</p>
+          <ul>
+            <li>the folder is directly inside <code>C:\wamp64\www</code>;</li>
+            <li>the name in the address matches the folder name exactly (<code>04-hello-world</code> is not the same as <code>hello-world</code>);</li>
+            <li>the file is called <code>index.php</code>.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>The page is completely blank</summary>
+        <div>
+          <p>A PHP error happened, but error messages are switched off.</p>
+          <ol class="steps">
+            <li>Left-click the tray icon → <em>PHP → PHP settings</em> → tick <code>display_errors</code>, then refresh.</li>
+            <li>Or, while you're learning, put this at the very top of your file:</li>
+          </ol>
+          <div class="code-wrap"><span class="code-label">index.php</span><pre><code>&lt;?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?&gt;</code></pre></div>
+          <p>Then look for the usual mistakes: a missing <code>;</code>, a missing <code>}</code> or <code>)</code>, a missing <code>$</code>, or a missing closing quote.</p>
+        </div>
+      </details>
+      <p class="note challenge"><strong>Check yourself:</strong> break your Hello World on purpose by deleting a <code>;</code>. Turn on <code>display_errors</code> and read the message. Which line number does it point to?</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="11-greeting.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="13-what-next.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

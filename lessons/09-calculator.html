@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>09 · Calculator with switch · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="09-calculator">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 9 of 13</span><span>~10 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="69"><div style="width:69%"></div></div>
+    </div>
+    <span class="tag">Lesson 09</span>
+    <h1>Calculator with switch</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Build on Lesson 8. A dropdown chooses the operation, and a <code>switch</code> picks the right sum. A <code>switch</code> is a tidy way to write lots of <code>if</code>s that check the same thing.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+          <li>In <code>C:\wamp64\www</code>, create a folder called <code>09-calculator</code>.</li>
+          <li>Inside it, create <code>index.php</code> and paste in the code below. Typing it yourself is even better.</li>
+          <li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
+          <li>Open <code>http://localhost/09-calculator/</code> in your browser.</li>
+          <li>Try every operation, including dividing by 0.</li>
+        </ol><div class="meta">
+          <div><b>Save as</b><code>C:\wamp64\www\09-calculator\index.php</code></div>
+          <div><b>Run it</b><code>http://localhost/09-calculator/</code></div>
+        </div><div class="code-wrap"><span class="code-label">09-calculator/index.php</span><pre><code>&lt;?php
+$result = null;
+$error = "";
+$a = "";
+$b = "";
+$op = "+";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $a = trim($_POST["a"] ?? "");
+    $b = trim($_POST["b"] ?? "");
+    $op = $_POST["op"] ?? "+";
+
+    if (!is_numeric($a) || !is_numeric($b)) {
+        $error = "Please type two numbers.";
+    } else {
+        switch ($op) {
+            case "+":
+                $result = $a + $b;
+                break;
+            case "-":
+                $result = $a - $b;
+                break;
+            case "*":
+                $result = $a * $b;
+                break;
+            case "/":
+                if ($b == 0) {
+                    $error = "You cannot divide by zero.";
+                } else {
+                    $result = $a / $b;
+                }
+                break;
+            default:
+                $error = "Unknown operation.";
+        }
+    }
+}
+
+// Symbols to show on the page
+$symbols = ["+" =&gt; "+", "-" =&gt; "−", "*" =&gt; "×", "/" =&gt; "÷"];
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Simple Calculator&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Simple calculator&lt;/h1&gt;
+
+    &lt;form method="post"&gt;
+        &lt;input type="text" name="a" value="&lt;?php echo htmlspecialchars($a); ?&gt;"&gt;
+        &lt;select name="op"&gt;
+            &lt;?php foreach ($symbols as $value =&gt; $label): ?&gt;
+                &lt;option value="&lt;?php echo $value; ?&gt;" &lt;?php if ($op === $value) echo "selected"; ?&gt;&gt;
+                    &lt;?php echo $label; ?&gt;
+                &lt;/option&gt;
+            &lt;?php endforeach; ?&gt;
+        &lt;/select&gt;
+        &lt;input type="text" name="b" value="&lt;?php echo htmlspecialchars($b); ?&gt;"&gt;
+        &lt;button type="submit"&gt;=&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;?php if ($error !== ""): ?&gt;
+        &lt;p style="color: red;"&gt;&lt;?php echo htmlspecialchars($error); ?&gt;&lt;/p&gt;
+    &lt;?php elseif ($result !== null): ?&gt;
+        &lt;h2&gt;Answer: &lt;?php echo round($result, 4); ?&gt;&lt;/h2&gt;
+    &lt;?php endif; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>10 × 4 gives "Answer: 40", 10 ÷ 4 gives "Answer: 2.5", and 10 ÷ 0 gives "You cannot divide by zero."</p>
+      <p class="note challenge"><strong>Try this:</strong> add a <code>%</code> (remainder) option to the dropdown and a matching <code>case "%":</code> in the <code>switch</code>.</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="08-addition.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="10-times-table.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

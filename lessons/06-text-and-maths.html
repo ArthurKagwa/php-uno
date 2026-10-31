@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>06 · Joining text &amp; simple maths · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="06-text-and-maths">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 6 of 13</span><span>~7 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="46"><div style="width:46%"></div></div>
+    </div>
+    <span class="tag">Lesson 06</span>
+    <h1>Joining text &amp; simple maths</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Join pieces of text with the dot (<code>.</code>) and do maths with <code>+ - * / %</code>.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+          <li>In <code>C:\wamp64\www</code>, create a folder called <code>06-text-and-maths</code>.</li>
+          <li>Inside it, create <code>index.php</code> and paste in the code below. Typing it yourself is even better.</li>
+          <li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
+          <li>Open <code>http://localhost/06-text-and-maths/</code> in your browser.</li>
+        </ol><div class="meta">
+          <div><b>Save as</b><code>C:\wamp64\www\06-text-and-maths\index.php</code></div>
+          <div><b>Run it</b><code>http://localhost/06-text-and-maths/</code></div>
+        </div><div class="code-wrap"><span class="code-label">06-text-and-maths/index.php</span><pre><code>&lt;?php
+$firstName = "Arthur";
+$lastName = "Asasira";
+
+// The dot (.) joins pieces of text together
+$fullName = $firstName . " " . $lastName;
+
+$price = 1500;
+$quantity = 3;
+$total = $price * $quantity;
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Text &amp;amp; Maths&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, &lt;?php echo $fullName; ?&gt;!&lt;/h1&gt;
+
+    &lt;h2&gt;Shopping&lt;/h2&gt;
+    &lt;p&gt;&lt;?php echo $quantity . " pens at " . $price . " each = " . $total; ?&gt;&lt;/p&gt;
+
+    &lt;h2&gt;Maths with 10 and 3&lt;/h2&gt;
+    &lt;p&gt;10 + 3 = &lt;?php echo 10 + 3; ?&gt;&lt;/p&gt;
+    &lt;p&gt;10 - 3 = &lt;?php echo 10 - 3; ?&gt;&lt;/p&gt;
+    &lt;p&gt;10 * 3 = &lt;?php echo 10 * 3; ?&gt;&lt;/p&gt;
+    &lt;p&gt;10 / 3 = &lt;?php echo round(10 / 3, 2); ?&gt;&lt;/p&gt;
+    &lt;p&gt;10 % 3 = &lt;?php echo 10 % 3; ?&gt; (the remainder)&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>"Hello, Arthur Asasira!", then "3 pens at 1500 each = 4500", then the answers 13, 7, 30, 3.33 and 1.</p>
+      <div class="note"><strong>Notice:</strong> <code>*</code> means times and <code>/</code> means divide. <code>%</code> gives the <em>remainder</em>: 10 ÷ 3 is 3 with 1 left over, so <code>10 % 3</code> is 1. You'll use that in the next lesson.</div>
+      <p class="note challenge"><strong>Check yourself:</strong> what is <code>17 % 5</code>? Add a line that prints it to find out. <em>(It should be 2.)</em></p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="05-variables.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="07-even-odd.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

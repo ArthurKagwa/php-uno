@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>10 · Loops: times table · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="10-times-table">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 10 of 13</span><span>~5 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="77"><div style="width:77%"></div></div>
+    </div>
+    <span class="tag">Lesson 10</span>
+    <h1>Loops: times table</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Let PHP do the repetitive work. A <code>for</code> loop runs the same code many times, and here it builds 12 table rows.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+          <li>In <code>C:\wamp64\www</code>, create a folder called <code>10-times-table</code>.</li>
+          <li>Inside it, create <code>index.php</code> and paste in the code below. Typing it yourself is even better.</li>
+          <li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
+          <li>Open <code>http://localhost/10-times-table/</code> in your browser.</li>
+        </ol><div class="meta">
+          <div><b>Save as</b><code>C:\wamp64\www\10-times-table\index.php</code></div>
+          <div><b>Run it</b><code>http://localhost/10-times-table/</code></div>
+        </div><div class="code-wrap"><span class="code-label">10-times-table/index.php</span><pre><code>&lt;?php
+// Which times table to show
+$n = 7;
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Multiplication Table&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Times table for &lt;?php echo $n; ?&gt;&lt;/h1&gt;
+
+    &lt;table border="1" cellpadding="6"&gt;
+        &lt;?php for ($i = 1; $i &lt;= 12; $i++): ?&gt;
+            &lt;tr&gt;
+                &lt;td&gt;&lt;?php echo "$n × $i"; ?&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;?php echo $n * $i; ?&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;?php endfor; ?&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>A table running from 7 × 1 = 7 down to 7 × 12 = 84.</p>
+      <div class="note"><strong>Reading the loop:</strong> <code>for ($i = 1; $i &lt;= 12; $i++)</code> means: start <code>$i</code> at 1, keep going while it's 12 or less, and add 1 each time round.</div>
+      <p class="note challenge"><strong>Try this:</strong> change <code>$n</code> to 9, then make the table go up to 20.</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="09-calculator.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="11-greeting.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>

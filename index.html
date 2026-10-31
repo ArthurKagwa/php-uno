@@ -3,503 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A beginner's guide to running your first PHP projects on Windows with WampServer.">
+  <meta name="description" content="Step-by-step beginner lessons for running your first PHP projects on Windows with WampServer.">
   <meta name="color-scheme" content="light dark">
-  <title>PHP Uno · Your first PHP projects with WampServer</title>
+  <title>PHP Uno · Learn PHP step by step with WampServer</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top">PHP <span>Uno</span></a>
-    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">☰</button>
-    <nav class="nav" id="nav">
-      <a href="#setup">1. Setup</a>
-      <a href="#first-project">2. Make a project</a>
-      <a href="#projects">3. Projects</a>
-      <a href="#troubleshooting">4. Troubleshooting</a>
-    </nav>
+    <a class="brand" href="index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="#lessons">Lessons</a>
   </header>
 
-  <main id="top">
+  <main>
     <div class="hero">
-      <h1>Your first PHP projects, step by step</h1>
-      <p>This guide shows you how to run PHP on your own Windows PC with <strong>WampServer</strong>. You'll set everything up once, then build 7 small projects, starting with Hello World and working up to a calculator.</p>
+      <h1>Learn PHP, one small step at a time</h1>
+      <p>Short lessons that take you from nothing installed to building forms, a calculator and loops on your own Windows PC with <strong>WampServer</strong>. Each lesson is one idea and a few steps, and takes about 5–10 minutes.</p>
       <div class="pill-row">
-        <a class="pill" href="#setup">Start here →</a>
-        <a class="pill ghost" href="#projects">Jump to projects</a>
+        <a class="pill" href="lessons/00-start.html">Start lesson 00 →</a>
+        <a class="pill ghost" id="continue" href="#lessons" hidden>Continue</a>
       </div>
-      <p class="note"><strong>Using XAMPP instead?</strong> Everything here works the same way. Just put your folders in <code>C:\xampp\htdocs</code> instead of <code>C:\wamp64\www</code>.</p>
+      <div class="progress-wrap">
+        <div class="progress-label"><span id="done-count">0 of 14 done</span><span>~87 min total</span></div>
+        <div class="progress"><div id="overall-bar" style="width:0%"></div></div>
+      </div>
     </div>
 
-    <!-- 1. SETUP -->
-    <section id="setup">
-      <span class="tag">Step 1</span>
-      <h2>Set up WampServer</h2>
-      <p>WampServer bundles <strong>Apache</strong> (the web server), <strong>PHP</strong> and <strong>MySQL</strong> into one install, so your PC can run PHP pages.</p>
-
-      <div class="card">
-        <ol class="steps">
-          <li><strong>Download it.</strong> Go to the official site, <a href="https://www.wampserver.com/en/" target="_blank" rel="noopener">wampserver.com/en</a>, and download the 64-bit version.</li>
-          <li><strong>Install it.</strong> Run the installer and keep the default folder, <code>C:\wamp64</code>. If it asks for a browser or text editor, the defaults are fine. If Windows says some "Visual C++ Redistributable" packages are missing, install them first (the WampServer site links to them), then try again.</li>
-          <li><strong>Start it.</strong> Open <em>Wampserver64</em> from the Start menu. A small "W" icon shows up in the system tray, near the clock. You may need to click the <code>^</code> arrow to see it.</li>
-          <li><strong>Check the icon colour.</strong>
-            <ul>
-              <li><span class="dot green"></span><strong>Green</strong>: everything is running. You're ready.</li>
-              <li><span class="dot orange"></span><strong>Orange</strong>: only some services started. See <a href="#troubleshooting">Troubleshooting</a>.</li>
-              <li><span class="dot red"></span><strong>Red</strong>: nothing is running yet. Wait a few seconds, or see Troubleshooting.</li>
-            </ul>
-          </li>
-          <li><strong>Test it.</strong> Open your browser and go to <a href="http://localhost" target="_blank" rel="noopener"><code>http://localhost</code></a>. If you see the WampServer home page, it works.</li>
-          <li><strong>Find the <code>www</code> folder.</strong> All your projects live in <code>C:\wamp64\www</code>. You can also left-click the tray icon and choose <em>www directory</em>.</li>
-          <li><strong>Get a code editor.</strong> Install <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> (free). It colours your code and helps you spot mistakes. Notepad works too, but VS Code is much nicer.</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 2. FIRST PROJECT -->
-    <section id="first-project">
-      <span class="tag">Step 2</span>
-      <h2>How to make a project</h2>
-      <p>Every project follows the same 3 steps:</p>
-      <div class="card">
-        <ol class="steps">
-          <li>In <code>C:\wamp64\www</code>, create a new folder, for example <code>hello-world</code>. Use lowercase letters and dashes, with no spaces.</li>
-          <li>In VS Code, open that folder (<em>File → Open Folder</em>), create a file called <code>index.php</code>, paste in your code and <strong>save</strong> it (<kbd>Ctrl</kbd>+<kbd>S</kbd>).</li>
-          <li>In your browser, open <code>http://localhost/hello-world/</code>. The folder name goes after <code>localhost/</code>.</li>
-        </ol>
-      </div>
-      <p class="note"><strong>Important:</strong> always open PHP pages through <code>http://localhost/…</code>. Double-clicking the file won't work, because then the browser opens the file directly and PHP never runs.</p>
-      <p>After you change the code, save the file and refresh the browser (<kbd>F5</kbd>) to see the result.</p>
-      <p><strong>Shortcut:</strong> every project below is also in the <code>projects/</code> folder of this repo. Download the repo (<em>Code → Download ZIP</em> on GitHub), unzip it, and copy the folders inside <code>projects/</code> into <code>C:\wamp64\www</code>. Typing the code yourself is the better way to learn, though!</p>
-    </section>
-
-    <!-- 3. PROJECTS -->
-    <section id="projects">
-      <span class="tag">Step 3</span>
-      <h2>Projects</h2>
-      <p>Do them in order. Each one adds something new.</p>
-      <div class="project-grid">
-        <a href="#p-hello-world"><span>1</span>Hello World</a>
-        <a href="#p-variables"><span>2</span>Variables &amp; echo</a>
-        <a href="#p-addition"><span>3</span>Add two numbers</a>
-        <a href="#p-calculator"><span>4</span>Simple calculator</a>
-        <a href="#p-even-odd"><span>5</span>Even or odd</a>
-        <a href="#p-times-table"><span>6</span>Multiplication table</a>
-        <a href="#p-greeting"><span>7</span>Greeting form (GET)</a>
-      </div>
-
-      <article class="card" id="p-hello-world">
-        <span class="tag">Project 1</span>
-        <h3>Hello World</h3>
-        <p>Your very first PHP page. PHP code goes between <code>&lt;?php</code> and <code>?&gt;</code>, and <code>echo</code> prints text onto the page.</p>
-        <div class="meta">
-          <div><b>Save as</b><code>C:\wamp64\www\hello-world\index.php</code></div>
-          <div><b>Open</b><code>http://localhost/hello-world/</code></div>
-        </div>
-        <div class="code-wrap"><span class="code-label">hello-world/index.php</span><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Hello World&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;&lt;?php echo "Hello, World!"; ?&gt;&lt;/h1&gt;
-    &lt;p&gt;Today is &lt;?php echo date("l, j F Y"); ?&gt;.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
-        <p><strong>You should see:</strong> a big "Hello, World!" heading and today's date underneath.</p>
-        <p class="note challenge"><strong>Try this:</strong> change the message to say hello to you by name, then add a second <code>echo</code> that prints the current time using <code>date("H:i")</code>.</p>
-      </article>
-
-      <article class="card" id="p-variables">
-        <span class="tag">Project 2</span>
-        <h3>Variables &amp; echo</h3>
-        <p>A variable is a labelled box that stores a value. In PHP, variable names start with <code>$</code>. Inside double quotes, PHP swaps a variable for its value, and a dot (<code>.</code>) joins pieces of text together.</p>
-        <div class="meta">
-          <div><b>Save as</b><code>C:\wamp64\www\variables\index.php</code></div>
-          <div><b>Open</b><code>http://localhost/variables/</code></div>
-        </div>
-        <div class="code-wrap"><span class="code-label">variables/index.php</span><pre><code>&lt;?php
-// Variables start with a $ sign
-$name = "Arthur";
-$age = 23;
-$city = "Kampala";
-$likesCoding = true;
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Variables &amp;amp; echo&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;About me&lt;/h1&gt;
-    &lt;?php
-    echo "&lt;p&gt;My name is $name.&lt;/p&gt;";
-    echo "&lt;p&gt;I am " . $age . " years old.&lt;/p&gt;";
-    echo "&lt;p&gt;I live in $city.&lt;/p&gt;";
-
-    if ($likesCoding) {
-        echo "&lt;p&gt;I like coding!&lt;/p&gt;";
-    }
-
-    $nextYear = $age + 1;
-    echo "&lt;p&gt;Next year I will be $nextYear.&lt;/p&gt;";
-    ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
-        <p><strong>You should see:</strong> 5 lines about "Arthur", including "Next year I will be 24."</p>
-        <p class="note challenge"><strong>Try this:</strong> change the values to your own details, then add a <code>$favouriteFood</code> variable and print it.</p>
-      </article>
-
-      <article class="card" id="p-addition">
-        <span class="tag">Project 3</span>
-        <h3>Add two numbers (form + POST)</h3>
-        <p>Now the user gives the page some input. An HTML form sends the two numbers back to the same page with <strong>POST</strong>, and PHP reads them from <code>$_POST</code>. The code checks that both boxes contain numbers, and it uses <code>htmlspecialchars()</code> before showing anything the user typed, which keeps the page safe.</p>
-        <div class="meta">
-          <div><b>Save as</b><code>C:\wamp64\www\addition\index.php</code></div>
-          <div><b>Open</b><code>http://localhost/addition/</code></div>
-        </div>
-        <div class="code-wrap"><span class="code-label">addition/index.php</span><pre><code>&lt;?php
-$result = null;
-$error = "";
-$a = "";
-$b = "";
-
-// Only run this part after the form is submitted
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $a = trim($_POST["a"] ?? "");
-    $b = trim($_POST["b"] ?? "");
-
-    if ($a === "" || $b === "") {
-        $error = "Please fill in both numbers.";
-    } elseif (!is_numeric($a) || !is_numeric($b)) {
-        $error = "Please type numbers only.";
-    } else {
-        $result = $a + $b;
-    }
-}
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Add Two Numbers&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Add two numbers&lt;/h1&gt;
-
-    &lt;form method="post"&gt;
-        &lt;input type="text" name="a" placeholder="First number"
-               value="&lt;?php echo htmlspecialchars($a); ?&gt;"&gt;
-        +
-        &lt;input type="text" name="b" placeholder="Second number"
-               value="&lt;?php echo htmlspecialchars($b); ?&gt;"&gt;
-        &lt;button type="submit"&gt;Add&lt;/button&gt;
-    &lt;/form&gt;
-
-    &lt;?php if ($error !== ""): ?&gt;
-        &lt;p style="color: red;"&gt;&lt;?php echo htmlspecialchars($error); ?&gt;&lt;/p&gt;
-    &lt;?php elseif ($result !== null): ?&gt;
-        &lt;h2&gt;
-            &lt;?php echo htmlspecialchars($a) . " + " . htmlspecialchars($b) . " = " . $result; ?&gt;
-        &lt;/h2&gt;
-    &lt;?php endif; ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
-        <p><strong>You should see:</strong> two boxes and an <em>Add</em> button. Type 5 and 7 and you get "5 + 7 = 12". Leave a box empty, or type letters, and you get a red error message.</p>
-        <p class="note challenge"><strong>Try this:</strong> add a third input box and add all three numbers together.</p>
-      </article>
-
-      <article class="card" id="p-calculator">
-        <span class="tag">Project 4</span>
-        <h3>Simple calculator (+ − × ÷)</h3>
-        <p>This builds on Project 3. A dropdown picks the operation, and a <code>switch</code> statement does the right sum. It also stops you from dividing by zero.</p>
-        <div class="meta">
-          <div><b>Save as</b><code>C:\wamp64\www\calculator\index.php</code></div>
-          <div><b>Open</b><code>http://localhost/calculator/</code></div>
-        </div>
-        <div class="code-wrap"><span class="code-label">calculator/index.php</span><pre><code>&lt;?php
-$result = null;
-$error = "";
-$a = "";
-$b = "";
-$op = "+";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $a = trim($_POST["a"] ?? "");
-    $b = trim($_POST["b"] ?? "");
-    $op = $_POST["op"] ?? "+";
-
-    if (!is_numeric($a) || !is_numeric($b)) {
-        $error = "Please type two numbers.";
-    } else {
-        switch ($op) {
-            case "+":
-                $result = $a + $b;
-                break;
-            case "-":
-                $result = $a - $b;
-                break;
-            case "*":
-                $result = $a * $b;
-                break;
-            case "/":
-                if ($b == 0) {
-                    $error = "You cannot divide by zero.";
-                } else {
-                    $result = $a / $b;
-                }
-                break;
-            default:
-                $error = "Unknown operation.";
-        }
-    }
-}
-
-// Symbols to show on the page
-$symbols = ["+" =&gt; "+", "-" =&gt; "−", "*" =&gt; "×", "/" =&gt; "÷"];
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Simple Calculator&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Simple calculator&lt;/h1&gt;
-
-    &lt;form method="post"&gt;
-        &lt;input type="text" name="a" value="&lt;?php echo htmlspecialchars($a); ?&gt;"&gt;
-        &lt;select name="op"&gt;
-            &lt;?php foreach ($symbols as $value =&gt; $label): ?&gt;
-                &lt;option value="&lt;?php echo $value; ?&gt;" &lt;?php if ($op === $value) echo "selected"; ?&gt;&gt;
-                    &lt;?php echo $label; ?&gt;
-                &lt;/option&gt;
-            &lt;?php endforeach; ?&gt;
-        &lt;/select&gt;
-        &lt;input type="text" name="b" value="&lt;?php echo htmlspecialchars($b); ?&gt;"&gt;
-        &lt;button type="submit"&gt;=&lt;/button&gt;
-    &lt;/form&gt;
-
-    &lt;?php if ($error !== ""): ?&gt;
-        &lt;p style="color: red;"&gt;&lt;?php echo htmlspecialchars($error); ?&gt;&lt;/p&gt;
-    &lt;?php elseif ($result !== null): ?&gt;
-        &lt;h2&gt;Answer: &lt;?php echo round($result, 4); ?&gt;&lt;/h2&gt;
-    &lt;?php endif; ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
-        <p><strong>You should see:</strong> 10 × 4 gives "Answer: 40", and 10 ÷ 0 gives "You cannot divide by zero."</p>
-        <p class="note challenge"><strong>Try this:</strong> add a <code>%</code> (remainder) option to the dropdown and a matching <code>case</code> in the <code>switch</code>.</p>
-      </article>
-
-      <article class="card" id="p-even-odd">
-        <span class="tag">Project 5</span>
-        <h3>Even or odd checker</h3>
-        <p>The <code>%</code> operator gives the remainder after dividing. If a number divided by 2 leaves 0, it's even. Otherwise it's odd. This project uses <code>if / elseif / else</code> to decide.</p>
-        <div class="meta">
-          <div><b>Save as</b><code>C:\wamp64\www\even-odd\index.php</code></div>
-          <div><b>Open</b><code>http://localhost/even-odd/</code></div>
-        </div>
-        <div class="code-wrap"><span class="code-label">even-odd/index.php</span><pre><code>&lt;?php
-$message = "";
-$number = "";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $number = trim($_POST["number"] ?? "");
-
-    // Only whole numbers can be even or odd
-    if (filter_var($number, FILTER_VALIDATE_INT) === false) {
-        $message = "Please type a whole number, like 7 or 12.";
-    } elseif ($number % 2 === 0) {
-        $message = "$number is EVEN.";
-    } else {
-        $message = "$number is ODD.";
-    }
-}
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Even or Odd&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Even or odd?&lt;/h1&gt;
-
-    &lt;form method="post"&gt;
-        &lt;input type="text" name="number" placeholder="Type a number"
-               value="&lt;?php echo htmlspecialchars($number); ?&gt;"&gt;
-        &lt;button type="submit"&gt;Check&lt;/button&gt;
-    &lt;/form&gt;
-
-    &lt;?php if ($message !== ""): ?&gt;
-        &lt;h2&gt;&lt;?php echo htmlspecialchars($message); ?&gt;&lt;/h2&gt;
-    &lt;?php endif; ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
-        <p><strong>You should see:</strong> 8 gives "8 is EVEN." and 13 gives "13 is ODD." Typing 2.5 or "abc" asks for a whole number.</p>
-        <p class="note challenge"><strong>Try this:</strong> also say whether the number is positive, negative or zero.</p>
-      </article>
-
-      <article class="card" id="p-times-table">
-        <span class="tag">Project 6</span>
-        <h3>Multiplication table (loop)</h3>
-        <p>A <code>for</code> loop repeats code. This one runs 12 times and builds one table row each time. The number comes from the URL, as <code>?n=</code>.</p>
-        <div class="meta">
-          <div><b>Save as</b><code>C:\wamp64\www\times-table\index.php</code></div>
-          <div><b>Open</b><code>http://localhost/times-table/</code></div>
-        </div>
-        <div class="code-wrap"><span class="code-label">times-table/index.php</span><pre><code>&lt;?php
-// Read ?n= from the URL, default to 7
-$n = filter_var($_GET["n"] ?? 7, FILTER_VALIDATE_INT);
-if ($n === false) {
-    $n = 7;
-}
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Multiplication Table&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Times table for &lt;?php echo $n; ?&gt;&lt;/h1&gt;
-
-    &lt;form method="get"&gt;
-        &lt;input type="number" name="n" value="&lt;?php echo $n; ?&gt;"&gt;
-        &lt;button type="submit"&gt;Show&lt;/button&gt;
-    &lt;/form&gt;
-
-    &lt;table border="1" cellpadding="6"&gt;
-        &lt;?php for ($i = 1; $i &lt;= 12; $i++): ?&gt;
-            &lt;tr&gt;
-                &lt;td&gt;&lt;?php echo "$n × $i"; ?&gt;&lt;/td&gt;
-                &lt;td&gt;&lt;?php echo $n * $i; ?&gt;&lt;/td&gt;
-            &lt;/tr&gt;
-        &lt;?php endfor; ?&gt;
-    &lt;/table&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
-        <p><strong>You should see:</strong> the 7 times table from 7 × 1 to 7 × 12. Type 9 and press <em>Show</em>, or open <code>http://localhost/times-table/?n=9</code>.</p>
-        <p class="note challenge"><strong>Try this:</strong> make the table go up to 20, or add a second box that sets how many rows to show.</p>
-      </article>
-
-      <article class="card" id="p-greeting">
-        <span class="tag">Project 7</span>
-        <h3>Greeting form (GET)</h3>
-        <p>This form uses <strong>GET</strong> instead of POST, so whatever you type shows up in the address bar, like <code>?name=Arthur</code>. PHP reads it from <code>$_GET</code>. The page also picks morning, afternoon or evening based on the time.</p>
-        <div class="meta">
-          <div><b>Save as</b><code>C:\wamp64\www\greeting\index.php</code></div>
-          <div><b>Open</b><code>http://localhost/greeting/</code></div>
-        </div>
-        <div class="code-wrap"><span class="code-label">greeting/index.php</span><pre><code>&lt;?php
-// GET values show up in the URL, e.g. ?name=Arthur
-$name = trim($_GET["name"] ?? "");
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Greeting&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;Greeting form&lt;/h1&gt;
-
-    &lt;form method="get"&gt;
-        &lt;input type="text" name="name" placeholder="Your name"
-               value="&lt;?php echo htmlspecialchars($name); ?&gt;"&gt;
-        &lt;button type="submit"&gt;Greet me&lt;/button&gt;
-    &lt;/form&gt;
-
-    &lt;?php if ($name !== ""): ?&gt;
-        &lt;?php
-        $hour = (int) date("G");
-        if ($hour &lt; 12) {
-            $greeting = "Good morning";
-        } elseif ($hour &lt; 17) {
-            $greeting = "Good afternoon";
-        } else {
-            $greeting = "Good evening";
-        }
-        ?&gt;
-        &lt;h2&gt;&lt;?php echo $greeting . ", " . htmlspecialchars($name) . "!"; ?&gt;&lt;/h2&gt;
-    &lt;?php endif; ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre></div>
-        <p><strong>You should see:</strong> type your name and you get something like "Good evening, Arthur!", and the URL changes to <code>…/greeting/?name=Arthur</code>.</p>
-        <p class="note challenge"><strong>Try this:</strong> add a second box for a favourite colour and show the greeting in that colour. Remember to use <code>htmlspecialchars()</code>!</p>
-      </article>
-    </section>
-
-    <!-- 4. TROUBLESHOOTING -->
-    <section id="troubleshooting">
-      <span class="tag">Step 4</span>
-      <h2>Troubleshooting</h2>
-      <p>Stuck? Tap a problem to see the fix.</p>
-
-      <details>
-        <summary><span class="dot orange"></span>The WampServer icon stays orange or red</summary>
-        <div>
-          <p>Usually another program is already using <strong>port 80</strong>, the port Apache needs. Common culprits are <strong>Skype</strong>, <strong>IIS</strong> (Windows' own web server) and other servers such as XAMPP.</p>
-          <ol class="steps">
-            <li>Close Skype, or in its settings turn off using port 80.</li>
-            <li>Turn off IIS: open <em>Turn Windows features on or off</em>, untick <em>Internet Information Services</em>, then restart.</li>
-            <li>Check the port: left-click the tray icon → <em>Apache → Service administration → Test port 80</em>. It tells you what's using it.</li>
-            <li>Then left-click the icon and choose <em>Restart All Services</em>.</li>
-          </ol>
-        </div>
-      </details>
-
-      <details>
-        <summary>My PHP code shows up as plain text</summary>
-        <div>
-          <p>You opened the file directly, and the address bar shows something like <code>file:///C:/wamp64/www/…</code>. The browser is just displaying the file, and PHP never runs it.</p>
-          <p><strong>Fix:</strong> open it through the server instead, at <code>http://localhost/your-folder/</code>. Also make sure the file ends in <code>.php</code> and not <code>.php.txt</code>. In File Explorer, go to <em>View → File name extensions</em> to check.</p>
-        </div>
-      </details>
-
-      <details>
-        <summary>404 Not Found</summary>
-        <div>
-          <p>The server can't find the folder you asked for. Check that:</p>
-          <ul>
-            <li>the folder is directly inside <code>C:\wamp64\www</code>, not in a folder inside another folder;</li>
-            <li>the name in the URL matches the folder name exactly (<code>hello-world</code> is not the same as <code>helloworld</code> or <code>Hello World</code>);</li>
-            <li>the file is called <code>index.php</code>. If it has a different name, add it to the URL, e.g. <code>http://localhost/hello-world/test.php</code>.</li>
-          </ul>
-        </div>
-      </details>
-
-      <details>
-        <summary>The page is completely blank</summary>
-        <div>
-          <p>A blank page usually means a PHP error happened, but the error messages are switched off.</p>
-          <ol class="steps">
-            <li>Turn errors on: left-click the tray icon → <em>PHP → PHP settings</em> → tick <code>display_errors</code>. Then refresh the page.</li>
-            <li>Or put this at the very top of your file, while you're learning:</li>
-          </ol>
-          <div class="code-wrap"><span class="code-label">index.php</span><pre><code>&lt;?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-?&gt;</code></pre></div>
-          <p>Then look for the usual mistakes: a missing <code>;</code> at the end of a line, a missing <code>}</code> or <code>)</code>, a missing <code>$</code> before a variable, or a missing closing quote.</p>
-        </div>
-      </details>
+    <section id="lessons">
+      <h2>Lessons</h2>
+      <ol class="lesson-list">
+        <li>
+          <a class="lesson-card" href="lessons/00-start.html" data-lesson="00-start">
+            <span class="num">00</span>
+            <span class="lc-body"><strong>What you need &amp; how this works</strong><small>You'll learn: What PHP is, what you need, and how the lessons work</small></span>
+            <span class="lc-time">3 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/01-install.html" data-lesson="01-install">
+            <span class="num">01</span>
+            <span class="lc-body"><strong>Install WampServer</strong><small>You'll learn: Download and install WampServer and VS Code</small></span>
+            <span class="lc-time">10 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/02-start-wamp.html" data-lesson="02-start-wamp">
+            <span class="num">02</span>
+            <span class="lc-body"><strong>Start it &amp; check localhost</strong><small>You'll learn: Start the server, read the tray icon, open localhost</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/03-www-folder.html" data-lesson="03-www-folder">
+            <span class="num">03</span>
+            <span class="lc-body"><strong>The www folder &amp; your first project</strong><small>You'll learn: Where projects live and how a folder becomes a URL</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/04-hello-world.html" data-lesson="04-hello-world">
+            <span class="num">04</span>
+            <span class="lc-body"><strong>Hello World</strong><small>You'll learn: Your first real PHP page with echo</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/05-variables.html" data-lesson="05-variables">
+            <span class="num">05</span>
+            <span class="lc-body"><strong>Variables &amp; echo</strong><small>You'll learn: Store values in $variables and print them</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/06-text-and-maths.html" data-lesson="06-text-and-maths">
+            <span class="num">06</span>
+            <span class="lc-body"><strong>Joining text &amp; simple maths</strong><small>You'll learn: Join text with a dot and do + − × ÷ and %</small></span>
+            <span class="lc-time">7 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/07-even-odd.html" data-lesson="07-even-odd">
+            <span class="num">07</span>
+            <span class="lc-body"><strong>If / else decisions</strong><small>You'll learn: Make the page decide something with if / else</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/08-addition.html" data-lesson="08-addition">
+            <span class="num">08</span>
+            <span class="lc-body"><strong>Your first form: add two numbers</strong><small>You'll learn: Read user input from a POST form, safely</small></span>
+            <span class="lc-time">10 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/09-calculator.html" data-lesson="09-calculator">
+            <span class="num">09</span>
+            <span class="lc-body"><strong>Calculator with switch</strong><small>You'll learn: Pick + − × ÷ from a dropdown, with a divide-by-zero check</small></span>
+            <span class="lc-time">10 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/10-times-table.html" data-lesson="10-times-table">
+            <span class="num">10</span>
+            <span class="lc-body"><strong>Loops: times table</strong><small>You'll learn: Repeat code with a for loop</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/11-greeting.html" data-lesson="11-greeting">
+            <span class="num">11</span>
+            <span class="lc-body"><strong>GET forms: greeting by time of day</strong><small>You'll learn: Read input from the URL with GET</small></span>
+            <span class="lc-time">7 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/12-troubleshooting.html" data-lesson="12-troubleshooting">
+            <span class="num">12</span>
+            <span class="lc-body"><strong>Troubleshooting</strong><small>You'll learn: Fix the 4 most common problems</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+        <li>
+          <a class="lesson-card" href="lessons/13-what-next.html" data-lesson="13-what-next">
+            <span class="num">13</span>
+            <span class="lc-body"><strong>What next</strong><small>You'll learn: Challenges and ideas to keep practising</small></span>
+            <span class="lc-time">5 min</span>
+            <span class="check" aria-hidden="true">✓</span>
+          </a>
+        </li>
+      </ol>
+      <p class="note">Using <strong>XAMPP</strong> instead of WampServer? It all works the same. Just use <code>C:\xampp\htdocs</code> instead of <code>C:\wamp64\www</code>.</p>
+      <p class="muted">The finished code for every project is in the <code>projects/</code> folder of the repo.</p>
     </section>
   </main>
 
   <footer>
-    PHP Uno · beginner PHP projects for WampServer · MIT License © 2026 Asasira Arthur
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
   </footer>
-
   <script src="assets/app.js"></script>
 </body>
 </html>

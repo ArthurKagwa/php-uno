@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>07 · If / else decisions · PHP Uno</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">PHP <span>Uno</span></a>
+    <a class="header-link" href="../index.html#lessons">All lessons</a>
+  </header>
+
+  <main class="lesson" data-lesson="07-even-odd">
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Lesson 7 of 13</span><span>~5 min</span></div>
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="54"><div style="width:54%"></div></div>
+    </div>
+    <span class="tag">Lesson 07</span>
+    <h1>If / else decisions</h1>
+    <article class="card">
+
+      <h2>Goal</h2>
+      <p>Make your code <strong>decide</strong>. <code>if</code> runs some code only when a condition is true, and <code>else</code> runs otherwise.</p>
+      <h2>Steps</h2>
+      <ol class="steps">
+          <li>In <code>C:\wamp64\www</code>, create a folder called <code>07-even-odd</code>.</li>
+          <li>Inside it, create <code>index.php</code> and paste in the code below. Typing it yourself is even better.</li>
+          <li>Save with <kbd>Ctrl</kbd>+<kbd>S</kbd>.</li>
+          <li>Open <code>http://localhost/07-even-odd/</code> in your browser.</li>
+          <li>Change <code>$number = 7;</code> to another number, save, and refresh.</li>
+        </ol><div class="meta">
+          <div><b>Save as</b><code>C:\wamp64\www\07-even-odd\index.php</code></div>
+          <div><b>Run it</b><code>http://localhost/07-even-odd/</code></div>
+        </div><div class="code-wrap"><span class="code-label">07-even-odd/index.php</span><pre><code>&lt;?php
+// Change this number, save, and refresh the page
+$number = 7;
+
+// % gives the remainder after dividing
+if ($number % 2 == 0) {
+    $answer = "EVEN";
+} else {
+    $answer = "ODD";
+}
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Even or Odd&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Even or odd?&lt;/h1&gt;
+    &lt;p&gt;&lt;?php echo "$number is $answer."; ?&gt;&lt;/p&gt;
+
+    &lt;?php if ($number &gt; 100): ?&gt;
+        &lt;p&gt;That's a big number!&lt;/p&gt;
+    &lt;?php endif; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+      <h2>You should see</h2>
+      <p>"7 is ODD." Change the number to 8 and you get "8 is EVEN." Try 150 and you also get "That's a big number!"</p>
+      <div class="note"><strong>Notice:</strong> <code>==</code> <em>compares</em> two values, while a single <code>=</code> <em>sets</em> a value. Mixing them up is a very common beginner mistake.</div>
+      <p class="note challenge"><strong>Try this:</strong> add an <code>elseif</code> that prints "zero" when the number is 0, and another check for negative numbers (<code>$number &lt; 0</code>).</p>
+
+    </article>
+    <button class="done-btn" type="button">Mark as done</button>
+    <nav class="pager" aria-label="Lesson navigation">
+      <a class="btn ghost" href="06-text-and-maths.html">← Prev</a>
+      <a class="btn ghost small" href="../index.html#lessons">Back to index</a>
+      <a class="btn" href="08-addition.html">Next →</a>
+    </nav>
+  </main>
+
+  <footer>
+    PHP Uno · beginner PHP lessons for WampServer · MIT License © 2026 Asasira Arthur
+  </footer>
+  <script src="../assets/app.js"></script>
+</body>
+</html>
